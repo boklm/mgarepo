@@ -297,6 +297,7 @@ def update_sources(topdir, added=[], removed=[]):
 def update_sources_threaded(*args, **kwargs):
     t = threading.Thread(target=update_sources, args=args, kwargs=kwargs)
     t.start()
+    t.join()
     return t
 
 def upload(path, message=None):
